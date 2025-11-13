@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TitleSlide } from "@/components/presentation/TitleSlide";
 import { ContextSlide } from "@/components/presentation/ContextSlide";
@@ -63,6 +63,10 @@ export default function Presentation() {
     if (e.key === "ArrowLeft") prevSlide();
   };
 
+  const handleDownload = () => {
+    window.print();
+  };
+
   useState(() => {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
@@ -72,15 +76,27 @@ export default function Presentation() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5 flex flex-col">
+      {/* Download Button */}
+      <div className="fixed top-8 right-8 no-print z-50">
+        <Button
+          onClick={handleDownload}
+          className="rounded-full shadow-lg"
+          size="lg"
+        >
+          <Download className="h-5 w-5 mr-2" />
+          Télécharger PDF
+        </Button>
+      </div>
+
       {/* Slide Container */}
-      <div className="flex-1 flex items-center justify-center p-8">
-        <div className="w-full max-w-6xl">
+      <div className="flex-1 flex items-center justify-center p-8 print:p-0">
+        <div className="w-full max-w-6xl print:max-w-full">
           <CurrentSlideComponent />
         </div>
       </div>
 
       {/* Navigation */}
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-4 bg-background/80 backdrop-blur-lg border border-border rounded-full px-6 py-3 shadow-lg">
+      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-4 bg-background/80 backdrop-blur-lg border border-border rounded-full px-6 py-3 shadow-lg no-print">
         <Button
           variant="ghost"
           size="icon"
