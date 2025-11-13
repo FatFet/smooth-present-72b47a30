@@ -5,7 +5,6 @@ import { TitleSlide } from "@/components/presentation/TitleSlide";
 import { ContextSlide } from "@/components/presentation/ContextSlide";
 import { ArchitectureSlide } from "@/components/presentation/ArchitectureSlide";
 import { AgentsOverviewSlide } from "@/components/presentation/AgentsOverviewSlide";
-import { FeatureAnalyzerSlide } from "@/components/presentation/FeatureAnalyzerSlide";
 import { PHPAnalystSlide } from "@/components/presentation/PHPAnalystSlide";
 import { ReactGeneratorSlide } from "@/components/presentation/ReactGeneratorSlide";
 import { ReviewerSlide } from "@/components/presentation/ReviewerSlide";
@@ -26,7 +25,6 @@ const slides = [
   ContextSlide,
   ArchitectureSlide,
   AgentsOverviewSlide,
-  FeatureAnalyzerSlide,
   PHPAnalystSlide,
   ReactGeneratorSlide,
   ReviewerSlide,
